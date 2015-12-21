@@ -15,9 +15,57 @@ $royal:                           #886aea !default;
 $dark:                            #444 !default;
 */
 
+$RobotoDraftFontPath: "../lib/robotodraft/fonts";
+$RobotoDraftFontName: "RobotoDraft";
+$RobotoDraftFontVersion: "1.0.0";
+@import "www/lib/robotodraft/sass/robotodraft.scss";
+
+$font-family-roboto-draft: "RobotoDraft", "Helvetica Neue", "Roboto", "Segoe UI", sans-serif !default;
+$font-family-base:                $font-family-roboto-draft !default;
+
+$easy: #ccc;
+
 // The path for our ionicons font files, relative to the built CSS in www/css
 $ionicons-font-path: "../lib/ionic/fonts" !default;
 
 // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";
 
+.menu {
+  .bar.bar-header.expanded {
+    background-image: url('../img/material-graphite.jpg');
+    background-size: 120%;
+    background-position: 0%;
+  }
+}
+
+.item.active, .item.activated {
+  border: 0;
+}
+
+.exercise-form {
+  label.item {
+  }
+
+  .input-label {
+    color: $easy;
+  }
+}
+
+.hero {
+  height: 150px;
+}
+
+.hero > .content {
+  top: 20px;
+  text-align: left;
+
+  .avatar {
+    margin: 0 10px;
+    float: left;
+  }
+  .avatar-text {
+    display: inline;
+    margin-left: 10px;
+  }
+}

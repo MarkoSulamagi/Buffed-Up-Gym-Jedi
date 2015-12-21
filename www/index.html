@@ -5,20 +5,35 @@
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
     <title>Buffed Up Gym Jedi</title>
 
-
     <!-- compiled css output -->
+    <link href="lib/ionic-material/dist/ionic.material.min.css" rel="stylesheet">
     <link href="css/ionic.app.css" rel="stylesheet">
 
     <!-- ionic/angularjs js -->
     <script src="lib/ionic/js/ionic.bundle.js"></script>
+    <script src="lib/ionic-material/dist/ionic.material.min.js"></script>
 
     <!-- cordova script (this will be a 404 during development) -->
     <script src="cordova.js"></script>
 
     <!-- your app's js -->
     <script src="js/app.js"></script>
+
+    <script src="js/shared/core/base-controller.js"></script>
+
+    <script src="js/shared/helpers/repeat-finished-event-directive.js"></script>
+
+    <script src="js/components/menu/menu-directive.js"></script>
+    <script src="js/components/menu/menu-controller.js"></script>
+    <script src="js/components/exercise-list/exercise-list-side-menu-directive.js"></script>
+    <script src="js/components/exercise-list/exercise-list-controller.js"></script>
+    <script src="js/components/exercise/exercise-directive.js"></script>
+    <script src="js/components/exercise/exercise-controller.js"></script>
+
   </head>
-  <body ng-app="bugj">
+  <body ng-app="bugj" ng-controller="BaseController">
+
+    <ion-nav-view></ion-nav-view>
 
   </body>
 </html>

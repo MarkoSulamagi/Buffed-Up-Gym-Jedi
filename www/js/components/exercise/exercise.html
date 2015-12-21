@@ -1,0 +1,60 @@
+<ion-view view-title="Exercise">
+  <ion-content ng-class="{expanded:$scope.isExpanded}">
+
+    <div class="hero slide-up" style="background-image: url('img/material-graphite.jpg');">
+      <div class="content">
+        <div class="avatar" style="background-image: url('img/bench-press-barbell.gif');"></div>
+        <div class="avatar-text">
+          <h3><a class="light">Bench press - Barbell</a></h3>
+          <h4>Give it all you've got!</h4>
+        </div>
+      </div>
+    </div>
+
+    <div class="list animate-fade-slide-in-right">
+
+      <div class="list exercise-form">
+        <label class="item item-input">
+          <span class="input-label">Weight (kg)</span>
+          <input type="text" ng-model="workout.weight" ng-change="weightInputChanged()">
+        </label>
+
+        <div class="item range">
+          <i class="icon ion-minus-round" ng-click="decreaseWeight()"></i>
+          <input type="range" name="weightRange" ng-model="workout.weightRange" min="0" max="100" ng-change="weightRangeChanged()">
+          <i class="icon ion-plus-round" ng-click="increaseWeight()"></i>
+        </div>
+
+      </div>
+
+      <div class="list exercise-form">
+        <label class="item item-input">
+          <span class="input-label">Reps (count)</span>
+          <input type="text" value="{{ workout.repRange }}" ng-model="workout.reps" ng-change="repInputChanged()">
+        </label>
+
+        <div class="item range ">
+          <i class="icon ion-minus-round bar-top" ng-click="decreaseReps()"></i>
+          <input type="range" name="repRange" ng-model="workout.repRange" min="3" max="30" ng-change="repRangeChanged()">
+          <i class="icon ion-plus-round" ng-click="increaseReps()"></i>
+        </div>
+      </div>
+
+      <h5 class="padding">How many sets?</h5>
+
+      <div class="button-bar bar-balanced">
+        <a class="button button-raised" ng-click="toggleSets(1)" ng-class="{ active:isActiveSet(1) }">1</a>
+        <a class="button button-raised" ng-click="toggleSets(2)" ng-class="{ active:isActiveSet(2) }">2</a>
+        <a class="button button-raised" ng-click="toggleSets(3)" ng-class="{ active:isActiveSet(3) }">3</a>
+        <a class="button button-raised" ng-click="toggleSets(4)" ng-class="{ active:isActiveSet(4) }">4</a>
+        <a class="button button-raised" ng-click="toggleSets(5)" ng-class="{ active:isActiveSet(5) }">5</a>
+      </div>
+
+        <div class="text-right padding"><button class="button button-dark ink">Save <i class="icon ion-checkmark"></i></button></div>
+      </div>
+
+
+    </div>
+
+  </ion-content>
+</ion-view>
