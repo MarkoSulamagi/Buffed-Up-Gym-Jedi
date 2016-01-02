@@ -3,7 +3,7 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-var bugj = angular.module('bugj', ['ionic', 'bugj.menu', 'bugj.core', 'bugj.exercise', 'bugj.exercise-list', 'bugj.helpers'])
+var bugj = angular.module('bugj', ['ionic', 'backand', 'bugj.menu', 'bugj.core', 'bugj.exercise', 'bugj.exercise-list', 'bugj.helpers', 'bugj.models'])
 
   .run(['$ionicPlatform', function($ionicPlatform) {
     $ionicPlatform.ready(function() {
@@ -22,7 +22,13 @@ var bugj = angular.module('bugj', ['ionic', 'bugj.menu', 'bugj.core', 'bugj.exer
       }
     });
   }])
+  // Back& interceptor for query authorization
+  .config(['$httpProvider', 'BackandProvider', function($httpProvider, BackandProvider) {
+    BackandProvider.setAppName('bugj'); // change here to your app name
+    BackandProvider.setAnonymousToken('4d637ce0-5fc7-4428-8995-b268ab292fb1'); // token is for anonymous login. see http://docs.backand.com/en/latest/apidocs/security/index.html#anonymous-access
 
+    //$httpProvider.interceptors.push(APIInterceptor);
+  }])
   .config(['$stateProvider', '$urlRouterProvider', '$ionicConfigProvider',
     function($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
 

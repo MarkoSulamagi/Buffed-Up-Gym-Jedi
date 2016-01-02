@@ -8,10 +8,10 @@
 
 <ion-content class="stable-bg has-expanded-header">
   <div class="list">
-    <a menu-close class="item item-thumbnail-left stable-bg" href="#" ng-repeat="exercise in exercises"
-       bugj-repeat-finished-event>
+    <a menu-close class="item item-thumbnail-left stable-bg" href="#" ng-repeat="exercise in getExercises()"
+       bugj-repeat-finished-event data-ng-click="selectExercise(exercise)">
 
-      <img src="img/bench-press-barbell.gif" width="80" height="80" alt="{{ exercise.name }}">
+      <img ng-src="{{ exercise.image }}" width="80" height="80" alt="{{ exercise.name }}">
       <h3>{{ exercise.name }}</h3>
       <p>Weight used: 10kg</p>
       <p>Reps: 10</p>

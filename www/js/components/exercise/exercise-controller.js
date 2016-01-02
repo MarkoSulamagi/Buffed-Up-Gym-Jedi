@@ -1,7 +1,15 @@
 "use strict";
 
-bugjExerciseList.controller('ExerciseController', ['$scope', 'ionicMaterialInk', 'ionicMaterialMotion', '$timeout',
-  function ($scope, ionicMaterialInk, ionicMaterialMotion, $timeout) {
+bugjExerciseList.controller('ExerciseController', ['$scope', 'ionicMaterialInk', 'ionicMaterialMotion', '$timeout', 'exercises',
+  function ($scope, ionicMaterialInk, ionicMaterialMotion, $timeout, exercises) {
+
+    $scope.defaultWorkoutParams = {
+      sets: 3,
+      weightRange: 30,
+      weight: 30,
+      repRange: 10,
+      reps: 10
+    };
 
     $scope.workout = {
       sets: 3,
@@ -11,11 +19,26 @@ bugjExerciseList.controller('ExerciseController', ['$scope', 'ionicMaterialInk',
       reps: 10
     };
 
-    $scope.$parent.showHeader();
-    $scope.$parent.clearFabs();
-    $scope.isExpanded = false;
-    $scope.$parent.setExpanded(false);
-    $scope.$parent.setHeaderFab(false);
+    function __construct() {
+      // Set Motion
+      $timeout(function () {
+        ionicMaterialMotion.slideUp({
+          selector: '.slide-up'
+        });
+      }, 300);
+
+      $timeout(function () {
+        ionicMaterialMotion.fadeSlideInRight({
+          startVelocity: 3000
+        });
+      }, 700);
+
+      // Set Ink
+      ionicMaterialInk.displayEffect();
+    }
+
+    $scope.getActiveExercise = exercises.getActiveExercise;
+    $scope.hasActiveExercise = exercises.hasActiveExercise;
 
     $scope.weightInputChanged = function() {
       $scope.workout.weightRange = $scope.workout.weight;
@@ -23,14 +46,6 @@ bugjExerciseList.controller('ExerciseController', ['$scope', 'ionicMaterialInk',
     $scope.weightRangeChanged = function() {
       $scope.workout.weight = $scope.workout.weightRange;
     };
-
-    $scope.repInputChanged = function() {
-      $scope.workout.repRange = $scope.workout.reps;
-    };
-    $scope.repRangeChanged = function() {
-      $scope.workout.reps = $scope.workout.repRange;
-    };
-
     $scope.increaseWeight = function() {
       $scope.workout.weight = parseFloat($scope.workout.weight) + 2.5;
       $scope.workout.weightRange = parseFloat($scope.workout.weightRange) + 2.5;
@@ -38,6 +53,13 @@ bugjExerciseList.controller('ExerciseController', ['$scope', 'ionicMaterialInk',
     $scope.decreaseWeight = function() {
       $scope.workout.weight = parseFloat($scope.workout.weight) - 2.5;
       $scope.workout.weightRange = parseFloat($scope.workout.weightRange) - 2.5;
+    };
+
+    $scope.repInputChanged = function() {
+      $scope.workout.repRange = $scope.workout.reps;
+    };
+    $scope.repRangeChanged = function() {
+      $scope.workout.reps = $scope.workout.repRange;
     };
     $scope.increaseReps = function() {
       $scope.workout.reps = parseInt($scope.workout.reps) + 1;
@@ -60,21 +82,25 @@ bugjExerciseList.controller('ExerciseController', ['$scope', 'ionicMaterialInk',
       return ($scope.workout.sets == number);
     };
 
-    // Set Motion
-    $timeout(function () {
-      ionicMaterialMotion.slideUp({
-        selector: '.slide-up'
-      });
-    }, 300);
+    $scope.$watch('getActiveExercise()', function() {
+      var activeExercise = $scope.getActiveExercise();
 
-    $timeout(function () {
-      ionicMaterialMotion.fadeSlideInRight({
-        startVelocity: 3000
-      });
-    }, 700);
+      $scope.workout = angular.copy($scope.defaultWorkoutParams);
 
-    // Set Ink
-    ionicMaterialInk.displayEffect();
+      if (!Helpers.empty(activeExercise.weight)) {
+        $scope.workout.weight = activeExercise.weight;
+        $scope.workout.weightRange = activeExercise.weight;
+      }
+      if (!Helpers.empty(activeExercise.reps)) {
+        $scope.workout.reps = activeExercise.reps;
+        $scope.workout.repRange = activeExercise.reps;
+      }
+      if (!Helpers.empty(activeExercise.sets)) {
+        $scope.workout.sets = activeExercise.sets;
+      }
+    });
+
+    __construct();
 
   }]);
 

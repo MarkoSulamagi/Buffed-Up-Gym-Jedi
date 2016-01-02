@@ -1,11 +1,11 @@
 <ion-view view-title="Exercise">
-  <ion-content ng-class="{expanded:$scope.isExpanded}">
+  <ion-content class="has-header">
 
     <div class="hero slide-up" style="background-image: url('img/material-graphite.jpg');">
-      <div class="content">
-        <div class="avatar" style="background-image: url('img/bench-press-barbell.gif');"></div>
+      <div class="content" ng-if="hasActiveExercise()">
+        <div class="avatar" style="background-image: url('{{ getActiveExercise().image }}');"></div>
         <div class="avatar-text">
-          <h3><a class="light">Bench press - Barbell</a></h3>
+          <h3><a class="light">{{ getActiveExercise().name }}</a></h3>
           <h4>Give it all you've got!</h4>
         </div>
       </div>
@@ -52,7 +52,6 @@
 
         <div class="text-right padding"><button class="button button-dark ink">Save <i class="icon ion-checkmark"></i></button></div>
       </div>
-
 
     </div>
 
