@@ -1,6 +1,6 @@
 "use strict";
 
-bugjExerciseList.controller('ExerciseListController', ['$scope', 'ionicMaterialInk', 'exercises', function ($scope, ionicMaterialInk, exercises) {
+bugjExerciseList.controller('ExerciseListController', ['$scope', 'ionicMaterialInk', 'exercises', 'loading', function ($scope, ionicMaterialInk, exercises, loading) {
 
   function __construct() {
     ionicMaterialInk.displayEffect();
@@ -10,7 +10,14 @@ bugjExerciseList.controller('ExerciseListController', ['$scope', 'ionicMaterialI
   $scope.getActiveExercise = exercises.getActiveExercise;
 
   $scope.selectExercise = function(exercise) {
-    exercises.setActiveExercise(exercise);
+    if (!exercises.isActiveExercise(exercise)) {
+      loading.start(500);
+      exercises.setActiveExercise(exercise);
+    }
+  };
+
+  $scope.newExercise = function(exercise) {
+    return (Helpers.empty(exercise.weight));
   };
 
   $scope.$on('ngRepeatFinished', function (ngRepeatFinishedEvent) {

@@ -44,12 +44,16 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 }
 
 .exercise-form {
-  label.item {
-  }
-
   .input-label {
     color: $easy;
   }
+  input {
+    font-size: 18px;
+  }
+}
+
+.list a.item {
+  min-height: 100px;
 }
 
 .hero {
@@ -67,5 +71,15 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
   .avatar-text {
     display: inline;
     margin-left: 10px;
+  }
+}
+
+.text-large {
+  font-size: 18px;
+}
+
+.range {
+  .icon {
+    font-size: 32px;
   }
 }

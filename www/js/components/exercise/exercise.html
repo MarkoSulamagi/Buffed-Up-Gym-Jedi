@@ -3,7 +3,7 @@
 
     <div class="hero slide-up" style="background-image: url('img/material-graphite.jpg');">
       <div class="content" ng-if="hasActiveExercise()">
-        <div class="avatar" style="background-image: url('{{ getActiveExercise().image }}');"></div>
+        <div class="avatar" style="background-image: url('img/exercises/{{ getActiveExercise().image }}');"></div>
         <div class="avatar-text">
           <h3><a class="light">{{ getActiveExercise().name }}</a></h3>
           <h4>Give it all you've got!</h4>
@@ -50,7 +50,10 @@
         <a class="button button-raised" ng-click="toggleSets(5)" ng-class="{ active:isActiveSet(5) }">5</a>
       </div>
 
-        <div class="text-right padding"><button class="button button-dark ink">Save <i class="icon ion-checkmark"></i></button></div>
+        <div class="text-right padding">
+          <button class="button button-dark ink" ng-click="save()">Save <i class="icon ion-checkmark"></i></button>
+          <div class="positive padding-top text-large" data-ng-if="sho">Data saved!</div>
+        </div>
       </div>
 
     </div>

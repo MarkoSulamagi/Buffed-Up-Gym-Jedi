@@ -1,7 +1,7 @@
 "use strict";
 
-bugjExerciseList.controller('ExerciseController', ['$scope', 'ionicMaterialInk', 'ionicMaterialMotion', '$timeout', 'exercises',
-  function ($scope, ionicMaterialInk, ionicMaterialMotion, $timeout, exercises) {
+bugjExerciseList.controller('ExerciseController', ['$scope', 'ionicMaterialInk', 'ionicMaterialMotion', 'loading', '$timeout', 'exercises', 'exerciseEntries',
+  function ($scope, ionicMaterialInk, ionicMaterialMotion, loading, $timeout, exercises, exerciseEntries) {
 
     $scope.defaultWorkoutParams = {
       sets: 3,
@@ -82,21 +82,32 @@ bugjExerciseList.controller('ExerciseController', ['$scope', 'ionicMaterialInk',
       return ($scope.workout.sets == number);
     };
 
+    $scope.save = function() {
+      loading.start();
+      exerciseEntries.save($scope.getActiveExercise(), $scope.workout.weight, $scope.workout.reps, $scope.workout.sets);
+      $scope.nextExercise();
+    };
+
+    $scope.nextExercise = function() {
+      exercises.setNextExerciseActive();
+    };
+
     $scope.$watch('getActiveExercise()', function() {
       var activeExercise = $scope.getActiveExercise();
 
       $scope.workout = angular.copy($scope.defaultWorkoutParams);
 
-      if (!Helpers.empty(activeExercise.weight)) {
-        $scope.workout.weight = activeExercise.weight;
-        $scope.workout.weightRange = activeExercise.weight;
-      }
-      if (!Helpers.empty(activeExercise.reps)) {
-        $scope.workout.reps = activeExercise.reps;
-        $scope.workout.repRange = activeExercise.reps;
-      }
-      if (!Helpers.empty(activeExercise.sets)) {
-        $scope.workout.sets = activeExercise.sets;
+      if (!Helpers.empty(activeExercise)) {
+        if (Helpers.notEmpty(activeExercise.weight)) {
+          $scope.workout.weight = activeExercise.weight;
+          $scope.workout.weightRange = activeExercise.weight;
+          $scope.workout.reps = activeExercise.repetitions;
+          $scope.workout.repRange = activeExercise.repetitions;
+          $scope.workout.sets = activeExercise.sets;
+        } else {
+          $scope.workout = $scope.defaultWorkoutParams;
+        }
+        loading.stop();
       }
     });
 

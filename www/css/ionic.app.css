@@ -9819,6 +9819,12 @@ a.button {
 .exercise-form .input-label {
   color: #ccc; }
 
+.exercise-form input {
+  font-size: 18px; }
+
+.list a.item {
+  min-height: 100px; }
+
 .hero {
   height: 150px; }
 
@@ -9831,3 +9837,9 @@ a.button {
   .hero > .content .avatar-text {
     display: inline;
     margin-left: 10px; }
+
+.text-large {
+  font-size: 18px; }
+
+.range .icon {
+  font-size: 32px; }
