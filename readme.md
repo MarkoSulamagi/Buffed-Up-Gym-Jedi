@@ -65,9 +65,7 @@ Thankses go to awesome people in Ionic, AngularJS and Backand teams for writing 
 
 ## Contact
 
-[![Marko Sulamägi](https://en.gravatar.com/userimage/11258586/0e1249f28758c92f471ff4443702d1e3.jpg?size=144](https://github.com/MarkoSulamagi) 
----
-[Marko Sulamägi](https://github.com/MarkoSulamagi)
+https://github.com/MarkoSulamagi
 
 ## License
 

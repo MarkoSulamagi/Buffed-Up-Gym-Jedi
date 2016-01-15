@@ -3,7 +3,7 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-var bugj = angular.module('bugj', ['ionic', 'backand', 'bugj.menu', 'bugj.core', 'bugj.exercise', 'bugj.exercise-list', 'bugj.helpers', 'bugj.models'])
+var bugj = angular.module('bugj', ['ionic', 'backand', 'bugj.menu', 'bugj.core', 'bugj.exercise', 'bugj.exercise-list', 'bugj.helpers', 'bugj.models', 'bugj.auth'])
 
   .run(['$ionicPlatform', function($ionicPlatform) {
     $ionicPlatform.ready(function() {
@@ -24,8 +24,8 @@ var bugj = angular.module('bugj', ['ionic', 'backand', 'bugj.menu', 'bugj.core',
   }])
   // Back& interceptor for query authorization
   .config(['$httpProvider', 'BackandProvider', function($httpProvider, BackandProvider) {
-    BackandProvider.setAppName('bugj'); // change here to your app name
-    BackandProvider.setAnonymousToken('4d637ce0-5fc7-4428-8995-b268ab292fb1'); // token is for anonymous login. see http://docs.backand.com/en/latest/apidocs/security/index.html#anonymous-access
+    BackandProvider.setAppName('YOUR_APP_NAME'); // change here to your app name
+    BackandProvider.setAnonymousToken('YOUR_ANONYMOUS_TOKEN'); // token is for anonymous login. see http://docs.backand.com/en/latest/apidocs/security/index.html#anonymous-access
 
     //$httpProvider.interceptors.push(APIInterceptor);
   }])
@@ -38,5 +38,14 @@ var bugj = angular.module('bugj', ['ionic', 'backand', 'bugj.menu', 'bugj.core',
           templateUrl: 'js/partials/exercise.html'
         });
 
+      $stateProvider
+        .state('login', {
+          url: '/login',
+          templateUrl: 'js/components/auth/login.html',
+          controller: 'AuthController'
+        });
+
       $urlRouterProvider.otherwise('/exercise');
   }]);
+
+
