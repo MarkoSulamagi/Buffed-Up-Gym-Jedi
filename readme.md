@@ -20,8 +20,10 @@ Currently .apk is not included in GitHUB or Google Play. So you need to run the 
 3. Insert your Backand app information (app name and anonymous token to /www/js/app.js file
 
         BackandProvider.setAppName('YOUR_APP_NAME'); 
-        BackandProvider.setAnonymousToken('YOUR_ANONYMOUS_TOKEN'); 
-4. Run the app ( learn how to do it in here http://ionicframework.com/docs/guide/testing.html )
+        BackandProvider.setAnonymousToken('YOUR_ANONYMOUS_TOKEN');       
+4. You can find Backand database table code in /database/tables.json and sample exercises in /database/exercises.json
+5. In Backand interface, create new query. Copy paste the query from /database/queries.sql . Label the query "exercises". 
+6. Run the app ( learn how to do it in here http://ionicframework.com/docs/guide/testing.html )
 
 I'm not going to get too much into how to install it. If anyone is interested then you can contact me at marko.sulamagi@gmail.com .
 
@@ -49,7 +51,7 @@ Functionality is as follows:
 
 - Sample exercises
 - Quite OK design 
-- Pull exercises list from server each time user opens app.
+- Pull exercises list from server each time user opens app (gifs are hard saved to app).
 - Switch exercises functionality (from sidemenu).
 - Save exercise info.
 - Set default exercise info to forms, if exercise has already been done before. 

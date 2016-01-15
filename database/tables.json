@@ -1,0 +1,51 @@
+[
+  {
+    "name": "exercises",
+    "fields": {
+      "name": {
+        "type": "string",
+        "required": true
+      },
+      "image": {
+        "type": "string"
+      },
+      "created_at": {
+        "type": "datetime"
+      },
+      "updated_at": {
+        "type": "datetime"
+      },
+      "exercise_entries": {
+        "collection": "exercise_entries",
+        "via": "exercise"
+      }
+    }
+  },
+  {
+    "name": "exercise_entries",
+    "fields": {
+      "exercise": {
+        "object": "exercises"
+      },
+      "weight": {
+        "type": "float",
+        "required": true
+      },
+      "repetitions": {
+        "type": "float",
+        "required": true
+      },
+      "sets": {
+        "type": "float",
+        "required": true
+      },
+      "created_at": {
+        "type": "datetime"
+      },
+      "updated_at": {
+        "type": "datetime"
+      }
+    }
+  }
+]
+

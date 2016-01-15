@@ -1,0 +1,82 @@
+[
+  {
+    "name": "Barbell bench press",
+    "image": "barbell-bench-press.gif"
+  },
+  {
+    "name": "Incline dumbbell press",
+    "image": "incline-dumbbell-press.gif"
+  },
+  {
+    "name": "Dips",
+    "image": "dips.gif"
+  },
+  {
+    "name": "Seated dumbbell triceps press",
+    "image": "seated-dumbbell-triceps-press.gif"
+  },
+  {
+    "name": "Cable triceps pulley",
+    "image": "cable-triceps-pulley.gif"
+  },
+  {
+    "name": "Pull-ups",
+    "image": "pull-ups.gif"
+  },
+  {
+    "name": "Bent over barbell row",
+    "image": "bent-over-barbell-row.gif"
+  },
+  {
+    "name": "Long bar row",
+    "image": "long-bar-row.gif"
+  },
+  {
+    "name": "Seated flys",
+    "image": "seated-flys.gif"
+  },
+  {
+    "name": "Seated cable row",
+    "image": "seated-cable-row.gif"
+  },
+  {
+    "name": "One arm dumbbell row",
+    "image": "one-arm-dumbbell-row.gif"
+  },
+  {
+    "name": "Behind the head pulley",
+    "image": "behind-the-head-pulley.gif"
+  },
+  {
+    "name": "Lat pulley",
+    "image": "lat-pulley.gif"
+  },
+  {
+    "name": "Seated leg curl",
+    "image": "seated-leg-curl.gif"
+  },
+  {
+    "name": "Prone Leg Curl",
+    "image": "prone-leg-curl.gif"
+  },
+  {
+    "name": "Standing Calf Raises",
+    "image": "standing-calf-raises.gif"
+  },
+  {
+    "name": "Squats",
+    "image": "squats.gif"
+  },
+  {
+    "name": "Hammer curls",
+    "image": "hammer-curls.gif"
+  },
+  {
+    "name": "Barbell curls",
+    "image": "barbell-curls.gif"
+  },
+  {
+    "name": "Military-press",
+    "image": "military-press.gif"
+  }
+]
